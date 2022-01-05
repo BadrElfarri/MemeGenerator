@@ -1,4 +1,4 @@
-# monday
+# Udacity Learning Project
 A Meme Generator Porject
 
 
