@@ -17,6 +17,7 @@ Make sure to have all dependencies installed
 - `pip install pandas`
 - `pip install Pillow`
 - `pip install docx`
+- `pip install requests`
 
 for mac:
 called via subprocess to parse PDF.
@@ -32,6 +33,9 @@ The project consist of the following files and modules:
 - QuoteEngine: Parse the quote files of type CSV, PDF, TXT and DOCX
 - templates: HTML templates
 - tmp: Used to store output data from image MemeGenerator and PDFImporter
+- static: images generated to be displayed on web
+- venv: Python environment
+
 
 ### How to run
 run python3 app.py to start the webpage

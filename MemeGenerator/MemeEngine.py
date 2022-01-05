@@ -1,6 +1,7 @@
 """Class MemeEngine."""
 from PIL import Image, ImageDraw, ImageFont
 import random
+import time
 
 
 class MemeEngine:
@@ -33,6 +34,6 @@ class MemeEngine:
             draw.text((x_pos, y_pos), f'{text}', font=font, fill='white')
             draw.text((x_pos, y_pos+20), f'-{author}', font=font, fill='white')
 
-        output_path = self.out_path + '/out2.jpg'
-        img.save(self.out_path + '/out2.jpg')
+        output_path = self.out_path + f'/out{time.time()}.jpg'
+        img.save(output_path)
         return output_path

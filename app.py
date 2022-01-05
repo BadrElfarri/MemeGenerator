@@ -59,7 +59,12 @@ def meme_post():
     body = request.form.get('body', '')
     author = request.form.get('author', '')
     image_url = request.form.get('image_url', '')
-    if image_url:
+    
+    """
+    image url used during testing:
+    https://www.earthrangers.com/public/content/wildwire/sun-sunglasses.jpg
+    """
+    try:
         get_image = requests.get(image_url, allow_redirects=True)
         tmp = f'./temp_{random.randint(0, 1000000)}.jpg'
         with open(tmp, 'wb') as img_f:
@@ -68,9 +73,10 @@ def meme_post():
 
         path = meme.make_meme(img, body, author)
         os.remove(tmp)
-    else:
-        img = random.choice(imgs)
-        path = meme.make_meme(img, body, author)
+    except:
+        os.remove(tmp)
+        print("Invalid file type entered")
+        return render_template('meme_error.html')
 
     return render_template('meme.html', path=path)
 
